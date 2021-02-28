@@ -23,6 +23,7 @@ class Cat extends Animal {
         this.color = color;
     }
 
+    //Полиморфизм
     @Override
     public void voice() {
         System.out.println("meow");
@@ -38,6 +39,7 @@ class Dog extends Animal {
         this.goodBoy = goodBoy;
     }
 
+    //Полиморфизм
     @Override
     public void voice() {
         System.out.println("gav");
