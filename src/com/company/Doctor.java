@@ -23,8 +23,8 @@ class MegaDoctor extends Doctor { //наследник задаёт более �
     }
 }
 
-class HomeDoctor extends Doctor { // наследник задаёт более специализированный случай родителя
-    public HomeDoctor(String name) {
+class HomePetDoctor extends Doctor { // наследник задаёт более специализированный случай родителя
+    public HomePetDoctor(String name) {
         super(name);
     }
 
