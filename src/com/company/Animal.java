@@ -57,7 +57,6 @@ class Monster {
 
     //Полиморфизм
     public void eat(Animal animal) {
-        this.animal = animal;
         System.out.println("i ate " + animal.getName());
     }
 
