@@ -4,15 +4,6 @@ import java.io.*;
 import java.util.Base64;
 
 public class General implements Serializable {
-    private static final long serialVersionUID = 64338523774886977L;
-
-    final String name;
-    final int age;
-
-    public General(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
 
     public <T> T copy() {
         try {
@@ -64,7 +55,7 @@ public class General implements Serializable {
     }
 }
 
-//class Any extends General {
-//
-//}
+class Any extends General {
+
+}
 
