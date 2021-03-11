@@ -54,22 +54,23 @@ public class General implements Serializable {
         return super.getClass();
     }
 
-    public<T, S> void assignmentAttempt(T target, S source) {
-        if(target.getClass() == source.getClass()) {
-            target = (T) source;
+    public <T, S> S assignmentAttempt(T target, S source) {
+        if (target.getClass() == source.getClass()) {
+            return (S) target;
         } else {
-            target = null;
+            return null;
         }
     }
+
 }
+
 
 class Any extends General {
-    public<T, S> void assignmentAttempt(T target, S source) {
-        if(target.getClass() == source.getClass()) {
-            target = (T) source;
+    public <T, S> S assignmentAttempt(T target, S source) {
+        if (target.getClass() == source.getClass()) {
+            return (S) target;
         } else {
-            target = null;
+            return null;
         }
     }
 }
-
