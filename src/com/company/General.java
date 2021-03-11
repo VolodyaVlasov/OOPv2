@@ -21,18 +21,18 @@ public class General implements Serializable {
     }
 
     public String serialize() throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(baos);
-        oos.writeObject(this);
-        oos.close();
-        return Base64.getEncoder().encodeToString(baos.toByteArray());
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        objectOutputStream.writeObject(this);
+        objectOutputStream.close();
+        return Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
     }
 
     public static <T> T deserialize(String s) throws IOException, ClassNotFoundException {
         byte[] data = Base64.getDecoder().decode(s);
-        ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data));
-        T o = (T) ois.readObject();
-        ois.close();
+        ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(data));
+        T o = (T) objectInputStream.readObject();
+        objectInputStream.close();
         return o;
     }
 
@@ -53,9 +53,23 @@ public class General implements Serializable {
     public Class<?> getType() {
         return super.getClass();
     }
+
+    public<T, S> void assignmentAttempt(T target, S source) {
+        if(target.getClass() == source.getClass()) {
+            target = (T) source;
+        } else {
+            target = null;
+        }
+    }
 }
 
 class Any extends General {
-
+    public<T, S> void assignmentAttempt(T target, S source) {
+        if(target.getClass() == source.getClass()) {
+            target = (T) source;
+        } else {
+            target = null;
+        }
+    }
 }
 
