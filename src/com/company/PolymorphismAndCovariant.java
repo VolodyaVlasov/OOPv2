@@ -1,22 +1,36 @@
 package com.company;
 
+import java.util.List;
+
 public class PolymorphismAndCovariant {
-    public Number test(){
-        return 0;
+    public void voice(Animal1 animal) {
+        animal.voice();
+    }
+
+    public void voicee(List<? extends Animal1> animals) {
+        for (var a : animals)
+            a.voice();
+    }
+
+    public static void main(String[] args) {
+        PolymorphismAndCovariant p = new PolymorphismAndCovariant();
+        Dog1 dog = new Dog1();
+        p.voice(dog);//полиморфизм
+        List<Dog1> dogs = List.of(new Dog1(), new Dog1());
+        p.voicee(dogs);//ковариантность
     }
 }
 
-class Covariant extends PolymorphismAndCovariant {
-    @Override
-    public Integer test() {  //ковариантность
-        return 0;
+class Animal1 {
+    public void voice() {
+        System.out.println("voice");
     }
 }
 
-class Polymorphism extends PolymorphismAndCovariant {
+class Dog1 extends Animal1 {
     @Override
-    public Integer test() {
-        return 1;
+    public void voice() {
+        System.out.println("dog voice");
     }
 }
 
